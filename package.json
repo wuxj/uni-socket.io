@@ -47,7 +47,7 @@
     "build-dev": "webpack --config webpack.config.dev.js --watch",
     "prepublish": "rm -rf ./dist && npm run build"
   },
-  "version": "3.7.8",
+  "version": "3.7.9",
   "dependencies": {
     "engine.io-client": "^5.2.0",
     "socket.io-client": "^4.0.0"

@@ -1,5 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
+const EsmWebpackPlugin = require("@purtuga/esm-webpack-plugin");
 
 function resolve(dir) {
   return path.join(__dirname, '..', dir)
@@ -10,7 +11,8 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'uni-socket.io.js',
-    libraryTarget: 'umd',
+    library: "uniSocketIo",
+    libraryTarget: "var"
   },
   plugins: [
     new webpack.NormalModuleReplacementPlugin(
@@ -21,6 +23,7 @@ module.exports = {
       /^engine.io-client$/,
       path.resolve(__dirname, './lib/engine.io-client')
     ),
+    new EsmWebpackPlugin()
   ],
   module: {
     rules: [
